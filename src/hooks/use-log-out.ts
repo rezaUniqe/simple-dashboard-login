@@ -4,7 +4,7 @@ export function useLogOut() {
     const router = useRouter()
     return () => {
         localStorage.removeItem("user")
-        router.push("/")
+        router.push("/auth")
     }
 
 }

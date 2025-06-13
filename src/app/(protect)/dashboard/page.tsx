@@ -1,13 +1,14 @@
 "use client"
 
-import {useState} from "react"
 import styles from "./dashboard.module.scss"
 import {Button} from "@/components/button/button"
 import {useCurrentUser} from "@/hooks/use-current-user"
 import clsx from "clsx";
+import {useLogOut} from "@/hooks/use-log-out";
 
 export default function Dashboard() {
-    const user = useCurrentUser()
+    const {user} = useCurrentUser()
+    const logout = useLogOut()
 
     return (
         <div className={styles["dashboard-container"]}>
@@ -15,7 +16,7 @@ export default function Dashboard() {
                 <div className={styles["nav-brand"]}>
                     <h2>Dashboard</h2>
                 </div>
-                <Button variant="danger" size="sm">
+                <Button onClick={logout} variant="danger" size="sm">
                     Logout
                 </Button>
             </nav>
@@ -26,7 +27,7 @@ export default function Dashboard() {
                         <div className={styles["welcome-icon"]}>
                             <span>👋</span>
                         </div>
-                        <h1>Welcome back, User {user?.name.first}</h1>
+                        <h1>Welcome back,{user?.name.first}</h1>
                         <p>Phone: {user?.phone}</p>
                         <div className={styles["welcome-stats"]}>
                             <div className={styles.stat}>
@@ -41,23 +42,6 @@ export default function Dashboard() {
                                 <span className={styles["stat-number"]}>5</span>
                                 <span className={styles["stat-label"]}>Messages</span>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className={styles["dashboard-content"]}>
-                    <div className={styles["content-grid"]}>
-                        <div className={styles.card}>
-                            <h3>Recent Activity</h3>
-                            <p>Your latest updates and notifications</p>
-                        </div>
-                        <div className={styles.card}>
-                            <h3>Quick Actions</h3>
-                            <p>Frequently used tools and shortcuts</p>
-                        </div>
-                        <div className={styles.card}>
-                            <h3>Analytics</h3>
-                            <p>Performance metrics and insights</p>
                         </div>
                     </div>
                 </div>

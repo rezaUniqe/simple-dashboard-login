@@ -1,5 +1,5 @@
 import {z} from 'zod'
-import {parsePhoneNumberFromString} from 'libphonenumber-js'
+import {parsePhoneNumberFromString} from 'libphonenumber-js/mobile'
 import {normalizeToInternational} from "@/utils/number-utils";
 
 export const loginSchema = z.object({
@@ -9,7 +9,7 @@ export const loginSchema = z.object({
             (val) => {
                 const normalized = normalizeToInternational(val)
                 const phone = parsePhoneNumberFromString(normalized, 'IR')
-                return phone?.isValid() && phone.getType() === 'MOBILE'
+                return phone?.isValid()
             },
             {
                 message: 'شماره موبایل معتبر نیست',
