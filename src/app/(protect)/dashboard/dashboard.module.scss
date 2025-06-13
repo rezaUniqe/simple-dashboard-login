@@ -125,40 +125,6 @@
   }
 }
 
-.dashboard-content {
-  .content-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-
-    .card {
-      background: white;
-      padding: 30px;
-      border-radius: 16px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-      border: 1px solid #e2e8f0;
-      transition: all 0.3s ease;
-
-      &:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-      }
-
-      h3 {
-        font-size: 20px;
-        font-weight: 600;
-        margin-bottom: 10px;
-        color: #2d3748;
-      }
-
-      p {
-        color: #718096;
-        line-height: 1.6;
-      }
-    }
-  }
-}
-
 @media (max-width: 768px) {
   .dashboard-nav {
     padding: 15px 20px;

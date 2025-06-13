@@ -2,6 +2,7 @@
 
 import React from "react"
 import styles from "./input.module.scss"
+import clsx from "clsx";
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
     label?: string
@@ -20,12 +21,10 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                 )}
                 <input
                     ref={ref}
-                    className={`${styles.input} ${styles[`input--${variant}`]} ${
-                        error ? styles["input--error"] : ""
-                    }`}
+                    className={clsx(styles.input, styles[`input--${variant}`])}
                     {...props}
                 />
-                {error && <span className={styles.inputError}>{error}</span>}
+                {error && <span className={styles["input-error"]}>{error}</span>}
             </div>
         )
     }

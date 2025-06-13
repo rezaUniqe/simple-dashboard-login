@@ -46,7 +46,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
                         loading ? styles["btnContent--loading"] : ""
                     }`}
                 >
-          {children}
+          {loading?"loading...":children}
         </span>
             </button>
         )
