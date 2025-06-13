@@ -11,6 +11,7 @@ export function useHandledLoginForm() {
     const router = useRouter()
     const form = useForm<LoginFormData>({
         resolver: zodResolver(loginSchema),
+        reValidateMode: "onBlur", mode: "onSubmit"
     })
     const {handleSubmit,} = form
 
